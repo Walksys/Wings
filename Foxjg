@@ -1,0 +1,86 @@
+#!/bin/bash
+# Made by Joy+fox
+
+echo "📦 Installing Pterodactyl Panel Auto Update with Docker...
+       _____         
+      |  ___|____  __
+      | |_ / _ \ \/ /
+      |  _| (_) >  < 
+      |_|  \___/_/\_\
+
+([System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String('CgojIFN0ZXAgMTogQ3JlYXRlIGRpcmVjdG9yeSBzdHJ1Y3R1cmUKbWtkaXIgLXAgcHRlcm9kYWN0eWwvcGFuZWwKY2QgcHRlcm9kYWN0eWwvcGFuZWwgfHwgZXhpdAoKIyBTdGVwIDI6IENyZWF0ZSBkb2NrZXItY29tcG9zZS55bWwgZmlsZQpjYXQgPDxFT0YgPiBkb2NrZXItY29tcG9zZS55bWwKdmVyc2lvbjogJzMuOCcKCngtY29tbW9uOgogIGRhdGFiYXNlOgogICAgJmRiLWVudmlyb25tZW50CiAgICBNWVNRTF9QQVNTV09SRDogJmRiLXBhc3N3b3JkIA==')))CHANGE_ME"
+    MYSQL_ROOT_PASSWORD: ([System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String('Q0hBTkdFX01FX1RPTw==')))
+  panel:
+    &panel-environment
+    APP_URL: ([System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String('aHR0cHM6Ly9wdGVyb2RhY3R5bC5leGFtcGxlLmNvbQ==')))
+    APP_TIMEZONE: ([System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String('VVRD')))
+    APP_SERVICE_AUTHOR: ([System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String('bm9yZXBseUBleGFtcGxlLmNvbQ==')))
+    TRUSTED_PROXIES: ([System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String('Kg==')))
+  mail:
+    &mail-environment
+    MAIL_FROM: ([System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String('bm9yZXBseUBleGFtcGxlLmNvbQ==')))
+    MAIL_DRIVER: ([System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String('c210cA==')))
+    MAIL_HOST: ([System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String('bWFpbA==')))
+    MAIL_PORT: ([System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String('MTAyNQ==')))
+    MAIL_USERNAME: ''
+    MAIL_PASSWORD: ''
+    MAIL_ENCRYPTION: ([System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String('dHJ1ZQ==')))
+
+services:
+  database:
+    image: mariadb:10.5
+    restart: always
+    command: --default-authentication-plugin=mysql_native_password
+    volumes:
+      - ([System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String('L3Nydi9wdGVyb2RhY3R5bC9kYXRhYmFzZTovdmFyL2xpYi9teXNxbA==')))
+    environment:
+      <<: *db-environment
+      MYSQL_DATABASE: ([System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String('cGFuZWw=')))
+      MYSQL_USER: ([System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String('cHRlcm9kYWN0eWw=')))
+
+  cache:
+    image: redis:alpine
+    restart: always
+
+  panel:
+    image: ghcr.io/pterodactyl/panel:v1.11.11
+    restart: always
+    ports:
+      - ([System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String('ODA6ODA=')))
+      - ([System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String('NDQzOjQ0Mw==')))
+    links:
+      - database
+      - cache
+    volumes:
+      - ([System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String('L3Nydi9wdGVyb2RhY3R5bC92YXIvOi9hcHAvdmFyLw==')))
+      - ([System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String('L3Nydi9wdGVyb2RhY3R5bC9uZ2lueC86L2V0Yy9uZ2lueC9odHRwLmQv')))
+      - ([System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String('L3Nydi9wdGVyb2RhY3R5bC9jZXJ0cy86L2V0Yy9sZXRzZW5jcnlwdC8=')))
+      - ([System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String('L3Nydi9wdGVyb2RhY3R5bC9sb2dzLzovYXBwL3N0b3JhZ2UvbG9ncw==')))
+    environment:
+      <<: [*panel-environment, *mail-environment]
+      DB_PASSWORD: *db-password
+      APP_ENV: ([System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String('cHJvZHVjdGlvbg==')))
+      APP_ENVIRONMENT_ONLY: ([System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String('ZmFsc2U=')))
+      CACHE_DRIVER: ([System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String('cmVkaXM=')))
+      SESSION_DRIVER: ([System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String('cmVkaXM=')))
+      QUEUE_DRIVER: ([System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String('cmVkaXM=')))
+      REDIS_HOST: ([System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String('Y2FjaGU=')))
+      DB_HOST: ([System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String('ZGF0YWJhc2U=')))
+      DB_PORT: ([System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String('MzMwNg==')))
+
+networks:
+  default:
+    ipam:
+      config:
+        - subnet: 172.20.0.0/16
+EOF
+
+# Step 3: Start Docker containers
+docker-compose up -d
+
+echo ([System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String('4pyFIFB0ZXJvZGFjdHlsIFBhbmVsIGluc3RhbGxhdGlvbiBjb21wbGV0ZSE=')))
+echo ([System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String('8J+MkCBBY2Nlc3MgeW91ciBwYW5lbCBhdDogaHR0cDovL2xvY2FsaG9zdCBvciB5b3VyLXNlcnZlci1pcA==')))
+echo ([System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String('8J+MkCBBY2Nlc3MgeW91ciBwYW5lbCBhdCBwb3J0IDgwOiBodHRwOi8vbG9jYWxob3N0OjgwIG9yIHlvdXItc2VydmVyLWlwOjgw')))
+
+# Step 4: Create an admin user for the Panel
+docker-compose run --rm panel php artisan p:user:make
