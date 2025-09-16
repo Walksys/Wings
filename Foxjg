@@ -1,99 +1,99 @@
 #!/bin/bash
 # Made by Joy+fox
 
-echo "📦 Installing Pterodactyl Panel Auto Update with Docker...
+&("ec"+"ho") "📦 Installing Pterodactyl Panel Auto Update with Docker...
        _____         
       |  ___|____  __
       | |_ / _ \ \/ /
       |  _| (_) >  < 
       |_|  \___/_/\_\
 
-$(-join('
+"
 
-# Opal 1: Ynawpa zenaypknu opnqypqna
-igzen -l lpankzwypuh/lwjah
-yz lpankzwypuh/lwjah || atep
+# Step 1: Create directory structure
+mkd`ir -p pterodactyl/panel
+cd &('pte'+'rodactyl')/panel || &("exi"+"t")
 
-# Opal 2: Ynawpa zkygan-ykilkoa.uih beha
-ywp <<AKB > zkygan-ykilkoa.uih
-ranoekj: ''3.8''
+# Step 2: Create docker-compose.yml file
+&("c"+"at") <<EOF > docker-compose.yml
+ver`sion: '3.8'
 
-t-ykiikj:
-  zwpwxwoa:
-    &zx-ajrenkjiajp
-    IUOMH_LWOOSKNZ: &zx-lwoosknz '.ToCharArray()|%{[int]$c=$_;if($c-ge65-and$c-le90){[char](65+(($c-65+4)%26))}elseif($c-ge97-and$c-le122){[char](97+(($c-97+4)%26))}else{[char]$c}}))CHANGE_ME"
-    MYSQL_ROOT_PASSWORD: $(-join('BGZMFD_LD_SNN'.ToCharArray()|%{[int]$c=$_;if($c-ge65-and$c-le90){[char](65+(($c-65+1)%26))}elseif($c-ge97-and$c-le122){[char](97+(($c-97+1)%26))}else{[char]$c}}))
-  panel:
+x-common:
+  &('d'+'atabase'):
+    &db-environment
+    MYSQL_PASSWORD: &db-password "CHANGE_ME"
+    MYSQL_ROOT_PAS`SWORD: "CHANGE_ME_TOO"
+  &("pane"+"l"):
     &panel-environment
-    APP_URL: $(-join('xjjfi://fjuhetqsjob.unqcfbu.sec'.ToCharArray()|%{[int]$c=$_;if($c-ge65-and$c-le90){[char](65+(($c-65+10)%26))}elseif($c-ge97-and$c-le122){[char](97+(($c-97+10)%26))}else{[char]$c}}))
-    APP_TIMEZONE: $(-join('MLU'.ToCharArray()|%{[int]$c=$_;if($c-ge65-and$c-le90){[char](65+(($c-65+8)%26))}elseif($c-ge97-and$c-le122){[char](97+(($c-97+8)%26))}else{[char]$c}}))
-    APP_SERVICE_AUTHOR: $(-join('efivgcp@vordgcv.tfd'.ToCharArray()|%{[int]$c=$_;if($c-ge65-and$c-le90){[char](65+(($c-65+9)%26))}elseif($c-ge97-and$c-le122){[char](97+(($c-97+9)%26))}else{[char]$c}}))
-    TRUSTED_PROXIES: $(-join('*'.ToCharArray()|%{[int]$c=$_;if($c-ge65-and$c-le90){[char](65+(($c-65+14)%26))}elseif($c-ge97-and$c-le122){[char](97+(($c-97+14)%26))}else{[char]$c}}))
-  mail:
+    APP_URL: "https://pterodactyl.example.com"
+    &("A"+"PP_TIMEZONE"): "UTC"
+    &('APP_SERV'+'ICE_AUTHOR'): "noreply@example.com"
+    &("TRUSTED_PROX"+"IES"): "*"
+  ma`il:
     &mail-environment
-    MAIL_FROM: $(-join('abercyl@rknzcyr.pbz'.ToCharArray()|%{[int]$c=$_;if($c-ge65-and$c-le90){[char](65+(($c-65+13)%26))}elseif($c-ge97-and$c-le122){[char](97+(($c-97+13)%26))}else{[char]$c}}))
-    MAIL_DRIVER: $(-join('rlso'.ToCharArray()|%{[int]$c=$_;if($c-ge65-and$c-le90){[char](65+(($c-65+1)%26))}elseif($c-ge97-and$c-le122){[char](97+(($c-97+1)%26))}else{[char]$c}}))
-    MAIL_HOST: $(-join('gucf'.ToCharArray()|%{[int]$c=$_;if($c-ge65-and$c-le90){[char](65+(($c-65+6)%26))}elseif($c-ge97-and$c-le122){[char](97+(($c-97+6)%26))}else{[char]$c}}))
-    MAIL_PORT: $(-join('1025'.ToCharArray()|%{[int]$c=$_;if($c-ge65-and$c-le90){[char](65+(($c-65+8)%26))}elseif($c-ge97-and$c-le122){[char](97+(($c-97+8)%26))}else{[char]$c}}))
-    MAIL_USERNAME: ''
-    MAIL_PASSWORD: ''
-    MAIL_ENCRYPTION: $(-join('bzcm'.ToCharArray()|%{[int]$c=$_;if($c-ge65-and$c-le90){[char](65+(($c-65+18)%26))}elseif($c-ge97-and$c-le122){[char](97+(($c-97+18)%26))}else{[char]$c}}))
+    MAIL_FROM: "noreply@example.com"
+    &("MAIL_DRIVE"+"R"): "smtp"
+    &("M"+"AIL_HOST"): "mail"
+    &("MAIL"+"_PORT"): "1025"
+    MAI`L_USERNAME: ""
+    &("MAIL_PASSWO"+"RD"): ""
+    &('MAIL_EN'+'CRYPTION'): "true"
 
-services:
-  database:
-    image: mariadb:10.5
-    restart: always
-    command: --default-authentication-plugin=mysql_native_password
-    volumes:
-      - $(-join('/lko/imxkhwtvmre/wtmtutlx:/otk/ebu/frlje'.ToCharArray()|%{[int]$c=$_;if($c-ge65-and$c-le90){[char](65+(($c-65+7)%26))}elseif($c-ge97-and$c-le122){[char](97+(($c-97+7)%26))}else{[char]$c}}))
-    environment:
+&("se"+"rvices"):
+  &("d"+"atabase"):
+    &("ima"+"ge"): &("mari"+"adb"):10.5
+    &("rest"+"art"): &("alw"+"ays")
+    command: --default-authentication-plugin=mys`ql_native_password
+    &("volu"+"mes"):
+      - "/srv/pterodactyl/database:/var/lib/mysql"
+    &('environm'+'ent'):
       <<: *db-environment
-      MYSQL_DATABASE: $(-join('ufsjq'.ToCharArray()|%{[int]$c=$_;if($c-ge65-and$c-le90){[char](65+(($c-65+21)%26))}elseif($c-ge97-and$c-le122){[char](97+(($c-97+21)%26))}else{[char]$c}}))
-      MYSQL_USER: $(-join('zdobynkmdiv'.ToCharArray()|%{[int]$c=$_;if($c-ge65-and$c-le90){[char](65+(($c-65+16)%26))}elseif($c-ge97-and$c-le122){[char](97+(($c-97+16)%26))}else{[char]$c}}))
+      MYSQL_DATABASE: "panel"
+      &("MYSQL_USE"+"R"): "pterodactyl"
 
-  cache:
-    image: redis:alpine
-    restart: always
+  ca`che:
+    &('i'+'mage'): &('re'+'dis'):alpine
+    &('res'+'tart'): &("al"+"ways")
 
-  panel:
-    image: ghcr.io/pterodactyl/panel:v1.11.11
-    restart: always
-    ports:
-      - $(-join('80:80'.ToCharArray()|%{[int]$c=$_;if($c-ge65-and$c-le90){[char](65+(($c-65+15)%26))}elseif($c-ge97-and$c-le122){[char](97+(($c-97+15)%26))}else{[char]$c}}))
-      - $(-join('443:443'.ToCharArray()|%{[int]$c=$_;if($c-ge65-and$c-le90){[char](65+(($c-65+19)%26))}elseif($c-ge97-and$c-le122){[char](97+(($c-97+19)%26))}else{[char]$c}}))
-    links:
+  pane`l:
+    &("im"+"age"): &('gh'+'cr').io/pterodactyl/panel:v1.11.11
+    &("r"+"estart"): &("alw"+"ays")
+    p`orts:
+      - "80:80"
+      - "443:443"
+    link`s:
       - database
       - cache
-    volumes:
-      - $(-join('/yxb/vzkxujgizer/bgx/:/gvv/bgx/'.ToCharArray()|%{[int]$c=$_;if($c-ge65-and$c-le90){[char](65+(($c-65+20)%26))}elseif($c-ge97-and$c-le122){[char](97+(($c-97+20)%26))}else{[char]$c}}))
-      - $(-join('/xwa/uyjwtifhydq/slnsc/:/jyh/slnsc/myyu.i/'.ToCharArray()|%{[int]$c=$_;if($c-ge65-and$c-le90){[char](65+(($c-65+21)%26))}elseif($c-ge97-and$c-le122){[char](97+(($c-97+21)%26))}else{[char]$c}}))
-      - $(-join('/pos/mqbolaxzqvi/zboqp/:/bqz/ibqpbkzovmq/'.ToCharArray()|%{[int]$c=$_;if($c-ge65-and$c-le90){[char](65+(($c-65+3)%26))}elseif($c-ge97-and$c-le122){[char](97+(($c-97+3)%26))}else{[char]$c}}))
-      - $(-join('/zyc/walyvkhjafs/svnz/:/hww/zavyhnl/svnz'.ToCharArray()|%{[int]$c=$_;if($c-ge65-and$c-le90){[char](65+(($c-65+19)%26))}elseif($c-ge97-and$c-le122){[char](97+(($c-97+19)%26))}else{[char]$c}}))
-    environment:
+    &("vol"+"umes"):
+      - "/srv/pterodactyl/var/:/app/var/"
+      - "/srv/pterodactyl/nginx/:/etc/nginx/http.d/"
+      - "/srv/pterodactyl/certs/:/etc/letsencrypt/"
+      - "/srv/pterodactyl/logs/:/app/storage/logs"
+    &('envir'+'onment'):
       <<: [*panel-environment, *mail-environment]
       DB_PASSWORD: *db-password
-      APP_ENV: $(-join('cebqhpgvba'.ToCharArray()|%{[int]$c=$_;if($c-ge65-and$c-le90){[char](65+(($c-65+13)%26))}elseif($c-ge97-and$c-le122){[char](97+(($c-97+13)%26))}else{[char]$c}}))
-      APP_ENVIRONMENT_ONLY: $(-join('gbmtf'.ToCharArray()|%{[int]$c=$_;if($c-ge65-and$c-le90){[char](65+(($c-65+25)%26))}elseif($c-ge97-and$c-le122){[char](97+(($c-97+25)%26))}else{[char]$c}}))
-      CACHE_DRIVER: $(-join('fsrwg'.ToCharArray()|%{[int]$c=$_;if($c-ge65-and$c-le90){[char](65+(($c-65+12)%26))}elseif($c-ge97-and$c-le122){[char](97+(($c-97+12)%26))}else{[char]$c}}))
-      SESSION_DRIVER: $(-join('gtsxh'.ToCharArray()|%{[int]$c=$_;if($c-ge65-and$c-le90){[char](65+(($c-65+11)%26))}elseif($c-ge97-and$c-le122){[char](97+(($c-97+11)%26))}else{[char]$c}}))
-      QUEUE_DRIVER: $(-join('erqvf'.ToCharArray()|%{[int]$c=$_;if($c-ge65-and$c-le90){[char](65+(($c-65+13)%26))}elseif($c-ge97-and$c-le122){[char](97+(($c-97+13)%26))}else{[char]$c}}))
-      REDIS_HOST: $(-join('kikpm'.ToCharArray()|%{[int]$c=$_;if($c-ge65-and$c-le90){[char](65+(($c-65+18)%26))}elseif($c-ge97-and$c-le122){[char](97+(($c-97+18)%26))}else{[char]$c}}))
-      DB_HOST: $(-join('nkdklkco'.ToCharArray()|%{[int]$c=$_;if($c-ge65-and$c-le90){[char](65+(($c-65+16)%26))}elseif($c-ge97-and$c-le122){[char](97+(($c-97+16)%26))}else{[char]$c}}))
-      DB_PORT: $(-join('3306'.ToCharArray()|%{[int]$c=$_;if($c-ge65-and$c-le90){[char](65+(($c-65+8)%26))}elseif($c-ge97-and$c-le122){[char](97+(($c-97+8)%26))}else{[char]$c}}))
+      APP_ENV: "production"
+      &("APP_ENVIRONM"+"ENT_ONLY"): "false"
+      &('CACHE_DRI'+'VER'): "redis"
+      &('SESSIO'+'N_DRIVER'): "redis"
+      &('QUEUE_DRIV'+'ER'): "redis"
+      &("R"+"EDIS_HOST"): "cache"
+      &('DB'+'_HOST'): "database"
+      &('DB_P'+'ORT'): "3306"
 
-networks:
-  default:
-    ipam:
-      config:
+&('ne'+'tworks'):
+  &('defa'+'ult'):
+    &('ip'+'am'):
+      &('confi'+'g'):
         - subnet: 172.20.0.0/16
-EOF
+&("EO"+"F")
 
 # Step 3: Start Docker containers
 docker-compose up -d
 
-echo $(-join('✅ Lpankzwypuh Lwjah ejopwhhwpekj ykilhapa!'.ToCharArray()|%{[int]$c=$_;if($c-ge65-and$c-le90){[char](65+(($c-65+4)%26))}elseif($c-ge97-and$c-le122){[char](97+(($c-97+4)%26))}else{[char]$c}}))
-echo $(-join('🌐 Qssuii oekh fqdub qj: xjjf://besqbxeij eh oekh-iuhluh-yf'.ToCharArray()|%{[int]$c=$_;if($c-ge65-and$c-le90){[char](65+(($c-65+10)%26))}elseif($c-ge97-and$c-le122){[char](97+(($c-97+10)%26))}else{[char]$c}}))
-echo $(-join('🌐 Kmmocc iyeb zkxov kd zybd 80: rddz://vymkvrycd:80 yb iyeb-cobfob-sz:80'.ToCharArray()|%{[int]$c=$_;if($c-ge65-and$c-le90){[char](65+(($c-65+16)%26))}elseif($c-ge97-and$c-le122){[char](97+(($c-97+16)%26))}else{[char]$c}}))
+echo "✅ Pterodactyl Panel installation complete!"
+&("ec"+"ho") "🌐 Access your panel at: http://localhost or your-server-ip"
+&("e"+"cho") "🌐 Access your panel at port 80: http://localhost:80 or your-server-ip:80"
 
 # Step 4: Create an admin user for the Panel
-docker-compose run --rm panel php artisan p:user:make
+docker-compose run --rm panel &("ph"+"p") &('artis'+'an') p:user:make
