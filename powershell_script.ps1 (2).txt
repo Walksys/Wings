@@ -1,0 +1,16 @@
+#!/bin/bash
+
+echo ([System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String('w7DFuOKAncKNIENoZWNraW5nIGZvciBzeXN0ZW0gdXBkYXRlcy4uLg==')))
+
+if command -v apt >/dev/null 2>&1; then
+    sudo apt update > /dev/null
+        UPDATES=$(apt list --upgradable 2>/dev/null | grep -v ([System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String('TGlzdGluZy4uLg=='))) | wc -l)
+            if [ $UPDATES -eq 0 ]; then
+                    echo ([System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String('w6LFk+KApiBObyB1cGRhdGVzIGF2YWlsYWJsZS4=')))
+                        else
+                                echo (([System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String('w6LFoSDDr8K4wo8g'))) + $UPDATES + ([System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String('IHVwZGF0ZShzKSBhdmFpbGFibGU6'))))
+                                        apt list --upgradable 2>/dev/null | grep -v ([System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String('TGlzdGluZy4uLg==')))
+                                            fi
+                                            else
+                                                echo ([System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String('w6LCncWSIFVuc3VwcG9ydGVkIE9TLiBPbmx5IERlYmlhbi9VYnVudHUgc3VwcG9ydGVkIGluIHRoaXMgdmVyc2lvbi4=')))
+                                                fi
